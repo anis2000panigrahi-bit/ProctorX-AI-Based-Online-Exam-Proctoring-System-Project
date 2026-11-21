@@ -118,7 +118,7 @@ ProctorX/
 └── README.md
 ```
 
-*Note: This is a simplified project structure. Some additional files and folders may exist in the repository.*
+*Note: This is a simplified project structure. Additional files and folders may exist in the repository.*
 
 ---
 
@@ -239,9 +239,9 @@ Gandhi Engineering College, Bhubaneswar, Odisha, India.
 
 ### Connect With Me
 
-- **LinkedIn:** https://www.linkedin.com/in/aniskumarpanigrahi/
-- **GitHub:** https://github.com/anis2000panigrahi-bit
-- **Instagram:** https://www.instagram.com/anis_panigrahi.2545/
+- **LinkedIn:** [Anis Kumar Panigrahi](https://www.linkedin.com/in/aniskumarpanigrahi/)
+- **GitHub:** [anis2000panigrahi-bit](https://github.com/anis2000panigrahi-bit)
+- **Instagram:** [anis_panigrahi.2545](https://www.instagram.com/anis_panigrahi.2545/)
 
 ---
 
