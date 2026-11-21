@@ -12,6 +12,12 @@ ProctorX combines an examination portal with AI-powered monitoring features to h
 
 ---
 
+## 🔐 ProctorX Login Page Preview
+
+![ProctorX Login Page](static/images/login.png)
+
+---
+
 ## About the Project
 
 **ProctorX** is an AI-based online examination and proctoring system developed to improve the security and integrity of online assessments.
@@ -25,6 +31,7 @@ The platform also provides separate examination patterns for objective and descr
 ## Key Features
 
 ### 1. Online Examination System
+
 - Student registration and login.
 - Examination dashboard.
 - Short Answer and Long Answer examination patterns.
@@ -34,6 +41,7 @@ The platform also provides separate examination patterns for objective and descr
 - Automatic submission when the timer expires.
 
 ### 2. AI-Based Proctoring
+
 - Face detection using Dlib.
 - Eye gaze detection.
 - Mouth tracking.
@@ -43,6 +51,7 @@ The platform also provides separate examination patterns for objective and descr
 - Audio activity detection.
 
 ### 3. Examination Monitoring
+
 - Candidate activity monitoring.
 - Suspicious activity detection.
 - Examination violation tracking.
@@ -50,6 +59,7 @@ The platform also provides separate examination patterns for objective and descr
 - Examination history management.
 
 ### 4. Student Dashboard
+
 - Student profile management.
 - Examination history.
 - Result information.
@@ -94,7 +104,8 @@ ProctorX/
 │   ├── css/
 │   ├── js/
 │   └── images/
-│       └── dashboard.png
+│       ├── dashboard.png
+│       └── login.png
 │
 ├── templates/
 │   ├── index.html
