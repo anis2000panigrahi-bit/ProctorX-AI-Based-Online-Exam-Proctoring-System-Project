@@ -6,15 +6,15 @@ ProctorX combines an examination portal with AI-powered monitoring features to h
 
 ---
 
-## 📸 ProctorX Dashboard Preview
-
-![ProctorX Dashboard](static/images/dashboard.png)
-
----
-
 ## 🔐 ProctorX Login Page Preview
 
 ![ProctorX Login Page](static/images/login.png)
+
+---
+
+## 📸 ProctorX Dashboard Preview
+
+![ProctorX Dashboard](static/images/dashboard.png)
 
 ---
 
@@ -104,8 +104,8 @@ ProctorX/
 │   ├── css/
 │   ├── js/
 │   └── images/
-│       ├── dashboard.png
-│       └── login.png
+│       ├── login.png
+│       └── dashboard.png
 │
 ├── templates/
 │   ├── index.html
