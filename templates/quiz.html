@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ProctorX | Examination</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=11">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="portal-page">
+
+    <header class="topbar">
+
+        <a class="brand" href="#">
+            <span class="brand-mark">P</span>
+            <span>Proctor<span class="brand-light">X</span></span>
+        </a>
+
+        <div class="topbar-right">
+
+            <span class="online-pill">
+                <i></i> Secure session
+            </span>
+
+            <span class="user-chip">
+                <span class="avatar">{{ user_email[0]|upper }}</span>
+                <span>{{ user_email }}</span>
+            </span>
+
+            <a class="logout-link" href="{{ url_for('logout') }}">
+                Log out
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <aside class="portal-sidebar" id="portal-sidebar">
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <button type="button" class="side-link active" data-section="dashboard-view">
+            <i class="fa-solid fa-house"></i>
+            My Dashboard
+        </button>
+
+        <button type="button" class="side-link" data-section="upcoming-panel">
+            <i class="fa-regular fa-calendar"></i>
+            Upcoming Exams
+        </button>
+
+        <button type="button" class="side-link" data-section="history-panel">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Exam History
+        </button>
+
+        <button type="button" class="side-link" data-section="results-panel">
+            <i class="fa-solid fa-chart-column"></i>
+            Result History
+        </button>
+
+        <button type="button" class="side-link" data-section="profile-panel">
+            <i class="fa-regular fa-user"></i>
+            Profile
+        </button>
+
+        <div class="sidebar-bottom">
+            <span class="secure-dot"></span>
+            Secure exam workspace
+        </div>
+
+    </aside>
+
+
+    <main class="main-wrap">
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard-view">
+
+            <div class="welcome-row">
+
+                <div>
+                    <span class="eyebrow">STUDENT DASHBOARD</span>
+
+                    <h1>Ready to do your best?</h1>
+
+                    <p>
+                        Choose an exam pattern to begin.
+                        Every attempt receives a fresh randomized question set.
+                    </p>
+                </div>
+
+                <div class="welcome-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+            </div>
+
+
+            <div class="stats-row">
+
+                <div class="stat-card">
+                    <span class="stat-icon purple">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </span>
+
+                    <div>
+                        <strong>Randomized</strong>
+                        <small>Fresh questions each attempt</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <span class="stat-icon mint">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </span>
+
+                    <div>
+                        <strong>AI Proctoring</strong>
+                        <small>Camera-based monitoring</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <span class="stat-icon amber">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </span>
+
+                    <div>
+                        <strong>Instant report</strong>
+                        <small>Results after submission</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">SELECT YOUR FORMAT</span>
+
+                    <h2>Choose exam pattern</h2>
+
+                    <p>
+                        Read the details and select the format that suits your assessment.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="pattern-grid">
+
+                <article class="pattern-card short-card">
+
+                    <div class="pattern-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+
+                    <span class="pattern-tag">QUICK ASSESSMENT</span>
+
+                    <h3>Short Answer</h3>
+
+                    <p>
+                        Objective questions with four options.
+                        Select one correct answer for each question.
+                    </p>
+
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> 10 randomized MCQs</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 1 mark per question</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 15 minutes duration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Automatic result after submission</li>
+                    </ul>
+
+                    <button type="button" class="pattern-btn" data-pattern="short">
+                        Choose short pattern
+                        <span>→</span>
+                    </button>
+
+                </article>
+
+
+                <article class="pattern-card long-card">
+
+                    <div class="pattern-icon">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+
+                    <span class="pattern-tag">DETAILED ASSESSMENT</span>
+
+                    <h3>Long Answer</h3>
+
+                    <p>
+                        Descriptive questions where you can explain
+                        concepts in your own words.
+                    </p>
+
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> 5 randomized descriptive questions</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Write detailed responses</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 30 minutes duration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Submitted answers await evaluation</li>
+                    </ul>
+
+                    <button type="button" class="pattern-btn" data-pattern="long">
+                        Choose long pattern
+                        <span>→</span>
+                    </button>
+
+                </article>
+
+            </div>
+
+
+            <!-- EXAM GUIDELINES -->
+
+            <div class="guidelines-card">
+
+                <div class="guidelines-heading">
+
+                    <span class="guideline-icon">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                    </span>
+
+                    <div>
+                        <h3>Examination Guidelines & Instructions</h3>
+
+                        <p>
+                            Please read all the rules carefully before starting your examination.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="guideline-grid">
+
+                    <div><b>01</b><span>Use a quiet, well-lit room and ensure your face is clearly visible to the webcam throughout the examination.</span></div>
+
+                    <div><b>02</b><span>Allow webcam and microphone access when requested by the browser. Camera monitoring is required for AI-based proctoring.</span></div>
+
+                    <div><b>03</b><span>Ensure that your internet connection is stable before starting the examination.</span></div>
+
+                    <div><b>04</b><span>Do not leave the examination page or switch to unauthorized applications during the test.</span></div>
+
+                    <div><b>05</b><span>Do not use mobile phones, books, notes, websites, or other unauthorized materials during the examination.</span></div>
+
+                    <div><b>06</b><span>Only the registered student is permitted to appear for the examination. Do not allow another person to assist you.</span></div>
+
+                    <div><b>07</b><span>Keep your face properly positioned in front of the camera. Avoid frequently moving away from the camera.</span></div>
+
+                    <div><b>08</b><span>Read every question carefully before selecting an answer or writing a descriptive response.</span></div>
+
+                    <div><b>09</b><span>For short-answer questions, select only one option that you believe is correct.</span></div>
+
+                    <div><b>10</b><span>For long-answer questions, write clear, relevant, and well-structured answers in your own words.</span></div>
+
+                    <div><b>11</b><span>Review your answers before final submission. Once submitted, you cannot modify your responses.</span></div>
+
+                    <div><b>12</b><span>Wait for the submission confirmation and result or submission status after completing your examination.</span></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- UPCOMING EXAMS -->
+
+        <section id="upcoming-panel" class="feature-panel hidden">
+
+            <span class="eyebrow">YOUR SCHEDULE</span>
+
+            <h1>Upcoming exams</h1>
+
+            <p class="feature-muted">
+                Available assessments are listed below.
+            </p>
+
+
+            <div class="feature-card">
+
+                <div>
+                    <b>Short Answer Assessment</b>
+                    <p>10 randomized multiple-choice questions | 15 Minutes</p>
+                </div>
+
+                <span class="status-tag">Available now</span>
+
+                <button type="button" class="pattern-btn" data-pattern="short">
+                    View exam →
+                </button>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div>
+                    <b>Long Answer Assessment</b>
+                    <p>5 descriptive questions | 30 Minutes</p>
+                </div>
+
+                <span class="status-tag">Available now</span>
+
+                <button type="button" class="pattern-btn" data-pattern="long">
+                    View exam →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXAM HISTORY -->
+
+        <section id="history-panel" class="feature-panel hidden">
+
+            <span class="eyebrow">ACTIVITY</span>
+
+            <h1>Exam history</h1>
+
+            <div class="history-actions">
+
+                <button type="button" id="clear-history-btn" class="clear-history-btn">
+                    <i class="fa-solid fa-trash"></i>
+                    Clear History
+                </button>
+
+            </div>
+
+            <div id="history-list" class="feature-list">
+                Loading your attempts...
+            </div>
+
+        </section>
+
+
+        <!-- RESULT HISTORY -->
+
+        <section id="results-panel" class="feature-panel hidden">
+
+            <span class="eyebrow">PERFORMANCE</span>
+
+            <h1>Result history</h1>
+
+            <div class="history-actions">
+
+                <button type="button" id="clear-results-btn" class="clear-history-btn">
+                    <i class="fa-solid fa-trash"></i>
+                    Clear Results
+                </button>
+
+            </div>
+
+            <div id="results-list" class="feature-list">
+                Loading your results...
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+
+        <section id="profile-panel" class="feature-panel hidden">
+
+            <span class="eyebrow">ACCOUNT</span>
+
+            <h1>My profile</h1>
+
+            <div id="profile-details" class="feature-card">
+                Loading profile...
+            </div>
+
+        </section>
+
+
+        <!-- INSTRUCTIONS -->
+
+        <section id="instructions-view" class="hidden">
+
+            <button type="button" class="back-link" id="back-dashboard">
+                <i class="fa-solid fa-arrow-left"></i>
+                Dashboard
+            </button>
+
+
+            <div class="instruction-panel">
+
+                <span class="eyebrow">BEFORE YOU BEGIN</span>
+
+                <h1 id="instruction-title">
+                    Exam instructions
+                </h1>
+
+                <p id="instruction-description"></p>
+
+                <div class="instruction-facts" id="instruction-facts"></div>
+
+                <div class="notice-box">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <span>
+                        Once you start, your question set is fixed for this attempt.
+                        You can move between questions and submit when you are ready.
+                        The examination timer cannot be paused.
+                    </span>
+
+                </div>
+
+
+                <label class="agree-line">
+
+                    <input type="checkbox" id="agree-rules">
+
+                    I have read and agree to follow the examination guidelines.
+
+                </label>
+
+
+                <button type="button" class="primary-btn start-exam-btn" id="start-exam">
+                    Start examination
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXAMINATION -->
+
+        <section id="exam-view" class="hidden">
+
+            <div class="exam-heading">
+
+                <div>
+                    <span class="eyebrow" id="exam-label">
+                        EXAM IN PROGRESS
+                    </span>
+
+                    <h1 id="exam-title">
+                        Short Answer Assessment
+                    </h1>
+
+                    <p>
+                        Take your time and submit when you have completed your answers.
+                    </p>
+                </div>
+
+
+                <span class="exam-status">
+                    <i></i>
+                    In progress
+                </span>
+
+            </div>
+
+
+            <!-- EXAMINATION TIMER -->
+
+            <div class="exam-timer-container">
+
+                <div class="exam-timer" role="timer" aria-live="off">
+
+                    <span class="timer-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </span>
+
+                    <div class="timer-info">
+
+                        <span class="timer-label">TIME REMAINING</span>
+
+                        <span id="exam-timer">15:00</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="exam-layout">
+
+                <!-- QUESTIONS -->
+
+                <div class="question-panel">
+
+                    <div class="question-top">
+
+                        <span id="question-number">
+                            QUESTION 01
+                        </span>
+
+                        <span id="answered-count">
+                            0 answered
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-track">
+                        <div id="question-progress"></div>
+                    </div>
+
+
+                    <div id="question-container"></div>
+
+
+                    <div class="question-controls">
+
+                        <button type="button" id="previous-question" class="secondary-btn">
+                            Previous
+                        </button>
+
+                        <button type="button" id="next-question" class="primary-btn">
+                            Next question
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXAM SIDEBAR -->
+
+                <aside class="exam-side">
+
+                    <!-- QUESTION NAVIGATION -->
+
+                    <div class="question-nav-card">
+
+                        <h3>Question navigator</h3>
+
+                        <p>Choose a question to jump to it.</p>
+
+                        <div id="question-nav"></div>
+
+                        <div class="nav-legend">
+
+                            <span>
+                                <i class="legend-done"></i>
+                                Answered
+                            </span>
+
+                            <span>
+                                <i class="legend-current"></i>
+                                Current
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI PROCTORING CAMERA -->
+
+                    <div class="camera-card">
+
+                        <div class="camera-heading">
+
+                            <span>
+                                <i class="fa-solid fa-camera"></i>
+                                AI proctoring
+                            </span>
+
+                            <span class="camera-live">
+                                <i class="fa-solid fa-circle"></i>
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="camera-feed-container">
+
+                            <img
+                                id="proctor-feed"
+                                data-src="{{ url_for('video_feed') }}"
+                                alt="AI proctoring camera feed"
+                            >
+
+                            <div id="camera-error" class="camera-error">
+
+                                <i class="fa-solid fa-video-slash"></i>
+
+                                <span>Camera feed unavailable</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <small>
+                            Keep your face visible during the assessment.
+                        </small>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+
+            <!-- SUBMIT AND CANCEL BUTTONS -->
+
+            <div class="submit-strip">
+
+                <div>
+
+                    <strong>Finished your examination?</strong>
+
+                    <span>
+                        Submit your answers or cancel the examination.
+                    </span>
+
+                </div>
+
+
+                <div class="exam-action-buttons">
+
+                    <button
+                        type="button"
+                        id="cancel-exam-btn"
+                        class="cancel-exam-btn"
+                    >
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        Cancel Examination
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="submit-exam"
+                        class="submit-btn"
+                    >
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Submit Examination
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULT VIEW -->
+
+        <section id="result-view" class="hidden">
+
+            <div class="result-panel">
+
+                <div class="result-symbol">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <span class="eyebrow">
+                    EXAMINATION STATUS
+                </span>
+
+                <h1 id="result-title">
+                    Your result
+                </h1>
+
+                <p id="result-description">
+                    Your attempt has been recorded.
+                </p>
+
+                <div class="result-metrics" id="result-metrics"></div>
+
+                <div class="result-note" id="result-note"></div>
+
+                <button type="button" class="primary-btn" id="return-dashboard">
+                    Return to dashboard
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- SUBMISSION CONFIRMATION MODAL -->
+
+    <div id="confirm-modal" class="modal-backdrop hidden">
+
+        <div class="confirm-card">
+
+            <span class="confirm-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </span>
+
+            <h2>Submit your examination?</h2>
+
+            <p id="confirm-text">
+                You won't be able to change your answers after submission.
+            </p>
+
+            <div class="confirm-actions">
+
+                <button type="button" id="cancel-submit" class="secondary-btn">
+                    Continue exam
+                </button>
+
+                <button type="button" id="confirm-submit" class="submit-btn">
+                    Yes, submit
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROCTOR WARNING -->
+
+    <div
+        id="proctor-warning"
+        class="proctor-warning hidden"
+        role="alertdialog"
+        aria-live="assertive"
+    >
+
+        <div class="warning-box">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <h2>Exam integrity warning</h2>
+
+            <p id="warning-message"></p>
+
+            <strong id="warning-count"></strong>
+
+            <button type="button" id="warning-ok" class="primary-btn">
+                I understand
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='script.js') }}?v=11"></script>
+    <script src="{{ url_for('static', filename='question.js') }}"></script>
+    <script src="{{ url_for('static', filename='portal_features.js') }}?v=11"></script>
+
+</body>
+
+</html>

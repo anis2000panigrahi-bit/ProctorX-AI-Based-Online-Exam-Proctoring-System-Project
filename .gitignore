@@ -1,0 +1,42 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Desktop examination tokens
+.desktop_monitor_token.json
+.desktop_monitor_token.json.tmp
+
+# Python virtual environments
+.venv/
+.venv311/
+.venv313/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Exam submissions and local data
+exam_submissions.json
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+# Local activity logs
+activity.txt
+
+# Local database dump
+backend/database.sql
